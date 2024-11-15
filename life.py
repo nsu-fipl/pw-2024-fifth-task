@@ -36,7 +36,9 @@ def alive_neighbours(field, i, j):
 
 def next_gen(field):
     assert len(field) != 0 and len(field[0]) != 0
-    new_field = [[dead()] * len(field[0])] * len(field)
+    new_field = []
+    for i in range(len(field)):
+        new_field.append([dead()] * len(field[i]))
     for i, row in enumerate(field):
         for j, cell in enumerate(row):
             n_alive = alive_neighbours(field, i, j)
